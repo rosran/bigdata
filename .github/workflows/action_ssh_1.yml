@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: wearerequired/git-mirror-action@master
+      with:
+        source-repo: 
+          'git@github.com:rosran/newRepo.git'
+        destination-repo: 
+          'git@github.com:rosran/trackerRepo.git'
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.GITHUB_SSH_PRIVATE_KEY }}
